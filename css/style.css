@@ -41,13 +41,12 @@ a {
 a:hover,
 a:focus,
 a:active {
-  color: #d80032;
+  color: #ef233c;
 }
 
 nav a,
 footer a {
-  display: block;
-  padding: 15px 23px 14px;
+  padding: 0.5em;
   color: #edf2f4;
 }
 
@@ -162,10 +161,31 @@ If no grid support, limit width to 50em and center align
       grid-column: 1/2;
       grid-row: 1/2;
     }
+    nav a,
+    footer a {
+      display: inline-block;
+    }
+
+    footer a {
+      font-size: 2em;
+      margin-top: 0.5em;
+    }
     /*Position the paragraph element in the header by itself under the profile-pic and the title of the site*/
     header p {
       grid-column: 1 / 3;
       grid-row: 2 / 3;
+    }
+
+    /*Position the go to the top btn in position absolute to be used all the time*/
+    .go-top-btn:before {
+      content: "\25B2";
+    }
+    .go-top-btn {
+      position: fixed;
+      bottom: 0.4em;
+      right: 0.4em;
+      background-color: #edf2f4;
+      padding: 0.2em;
     }
 
     /*--------------------------------------------------------------
@@ -195,10 +215,9 @@ If no grid support, limit width to 50em and center align
 
     /*Turn an image grayscale and color image when hover*/
     .grayscale {
-        filter: url(filters.svg#grayscale); 
-        filter: gray; 
-        -webkit-filter: grayscale(1); 
-        
+      filter: url(filters.svg#grayscale);
+      filter: gray;
+      -webkit-filter: grayscale(1);
     }
 
     .grayscale:hover {
