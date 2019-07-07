@@ -1,0 +1,209 @@
+@import url("reset.css");
+@import url("typography.css");
+@import url("accessibility.css");
+
+/* Color palette 
+#2B2D42 - metal
+#8D99AE - gray blue
+#a6b2c9 - light gray (fonts)
+#EDF2F4 - gray/white
+#EF233C - red
+#D80032 - darker red
+*/
+
+/*--------------------------------------------------------------
+General styles
+--------------------------------------------------------------*/
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  margin: 0 auto;
+}
+
+.content-wrap {
+  padding: 1em;
+}
+/*Create a border that separates content customize only for small screens*/
+.border-line-phones {
+  padding-bottom: 1em;
+  margin-bottom: 0;
+  border-bottom: 1px solid #2b2d42;
+}
+/*--------------------------------------------------------------
+Anchors General Style
+--------------------------------------------------------------*/
+a {
+  color: #d80032;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #d80032;
+}
+
+nav a,
+footer a {
+  display: block;
+  padding: 15px 23px 14px;
+  color: #edf2f4;
+}
+
+.header-footer-hover a:hover,
+.header-footer-hover a:focus,
+.header-footer-hover a:active {
+  color: #2b2d42;
+}
+
+/*--------------------------------------------------------------
+Header & Footer
+--------------------------------------------------------------*/
+header,
+footer {
+  background-color: #2b2d42;
+  color: #a6b2c9;
+  text-align: center;
+}
+
+header h1,
+header h2,
+footer h2 {
+  font-family: "Caveat", cursive;
+  color: #edf2f4;
+  margin: 0;
+}
+/* Header
+ **********************/
+
+.radious-img {
+  border-radius: 50%;
+}
+
+/* Footer
+ **********************/
+
+/*--------------------------------------------------------------
+Navbar
+--------------------------------------------------------------*/
+nav {
+  background-color: #8d99ae;
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+Work Experience & Relationships
+--------------------------------------------------------------*/
+.work,
+.relationships {
+  background-color: #edf2f4;
+}
+/*--------------------------------------------------------------
+Influencers & Quotes
+--------------------------------------------------------------*/
+.influencers,
+.quotes {
+  background-color: #8d99ae;
+}
+
+/*--------------------------------------------------------------
+Relationships
+--------------------------------------------------------------*/
+
+.relationships img {
+  max-width: 50%;
+  border: 3px solid #2b2d42;
+}
+
+.relationships h3 {
+  text-align: center;
+}
+
+/*--------------------------------------------------------------
+If no grid support, limit width to 50em and center align
+--------------------------------------------------------------*/
+@supports (grid-area: auto) {
+  @media screen and (min-width: 50em) {
+    /*--------------------------------------------------------------
+    Grid - General Styles
+    --------------------------------------------------------------*/
+    .content-wrap {
+      max-width: 50em;
+      margin: 0 auto;
+    }
+
+    /*Position the title of the section in the first column by itself*/
+    section h2 {
+      grid-column: 1/3;
+    }
+    /*--------------------------------------------------------------
+    Grid - Anchor Styles
+    --------------------------------------------------------------*/
+    nav a,
+    footer a {
+      display: inline-block;
+    }
+
+    /*--------------------------------------------------------------
+    Grid - Header & Footer
+    --------------------------------------------------------------*/
+    .grid-two-column-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .title {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      align-self: center;
+    }
+    .header-profile-img {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+    /*Position the paragraph element in the header by itself under the profile-pic and the title of the site*/
+    header p {
+      grid-column: 1 / 3;
+      grid-row: 2 / 3;
+    }
+
+    /*--------------------------------------------------------------
+    Grid - Work Experience
+    --------------------------------------------------------------*/
+    .grid-two-column-work {
+      display: grid;
+      grid-template-columns: 30% 1fr;
+      grid-row-gap: 1em;
+    }
+
+    /*Create a border to separate the positions held on Work Experience section*/
+    .border-item {
+      padding-bottom: 1em;
+      margin-bottom: 0;
+      border-bottom: 1px solid #2b2d42;
+    }
+    /*--------------------------------------------------------------
+    Grid - Relationships
+    --------------------------------------------------------------*/
+    .grid-two-column-relationships {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      grid-row-gap: 2em;
+    }
+
+    /*Turn an image grayscale and color image when hover*/
+    .grayscale {
+        filter: url(filters.svg#grayscale); 
+        filter: gray; 
+        -webkit-filter: grayscale(1); 
+        
+    }
+
+    .grayscale:hover {
+      filter: none;
+      -webkit-filter: grayscale(0%);
+    }
+  }
+}
